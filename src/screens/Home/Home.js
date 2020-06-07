@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Colors from '../../constants/Colors';
 import Square from '../../components/Square';
 import PerformanceChart from '../../components/Charts/PerformanceChart';
+import useWindowDimensions from '../../hooks/windowDimensions';
 
 const Home = () => {
+  const { height, width } = useWindowDimensions();
+
   return (
     <ThisSection>
       <Landing>
@@ -25,22 +28,22 @@ const Home = () => {
         <Square title='Technologies' subtitle=''>
           <Technology
             src={require('../../assets/gear.png')}
-            top='5rem'
-            left='3rem'
+            top={width >= 1500 ? '5rem' : width > 600 ? '3rem' : '2.2rem'}
+            left={width >= 500 ? '3rem' : '1rem'}
             width='2rem'
             animation='rotate-right'
           />
           <Technology
             src={require('../../assets/gear.png')}
-            top='6rem'
-            left='4.8rem'
+            top={width >= 1500 ? '6rem' : width > 600 ? '4rem' : '3.2rem'}
+            left={width >= 500 ? '4.8rem' : '2.7rem'}
             width='2.2rem'
             animation='rotate-left'
           />
           <Technology
             src={require('../../assets/gear.png')}
-            top='7.5rem'
-            left='3.5rem'
+            top={width >= 1500 ? '7.5rem' : width > 600 ? '5.5rem' : '4.2rem'}
+            left={width >= 500 ? '3.5rem' : '1.3rem'}
             width='1.5rem'
             animation='rotate-right'
           />
@@ -58,7 +61,13 @@ const Home = () => {
 
 const ThisSection = styled.div`
   box-sizing: border-box;
-  height: calc(100vh - 3rem);
+  min-height: calc(100vh - 3rem);
+
+  @media screen and (max-width: 1200px) {
+    padding: 8rem 2rem;
+    display: flex;
+    flex-direction: column;
+  }
 
   &:hover {
     .nmoerror-tiny-bubble,
@@ -80,6 +89,24 @@ const Landing = styled.div`
   font-weight: 300;
   color: rgba(35, 35, 35, 0.9);
 
+  @media screen and (max-width: 1500px) {
+    top: 18rem;
+    left: 6rem;
+  }
+
+  @media screen and (max-width: 1400px) {
+    top: 15rem;
+    width: 30rem;
+  }
+
+  @media screen and (max-width: 1200px) {
+    position: relative;
+    margin: auto;
+    left: 1rem;
+    top: 0;
+    width: 100%;
+  }
+
   p {
     margin: 0;
   }
@@ -90,13 +117,36 @@ const Bubble = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  right: 20rem;
+  right: 10%;
   top: 12rem;
   width: 30rem;
   height: 30rem;
   border-radius: 100%;
   background: ${Colors.purple};
   transition: 0.25s;
+
+  @media screen and (max-width: 1500px) {
+    width: 25rem;
+    height: 25rem;
+  }
+
+  @media screen and (max-width: 1200px) {
+    position: relative;
+    margin: auto;
+    left: 0;
+    top: 5rem;
+    width: 20rem;
+    height: 20rem;
+  }
+
+  @media screen and (max-width: 500px) {
+    position: relative;
+    margin: auto;
+    left: 0;
+    top: 5rem;
+    width: 20rem;
+    height: 20rem;
+  }
 `;
 
 const MiniBubble = styled.div`
@@ -146,6 +196,15 @@ const Mobile = styled.img`
   left: 4rem;
   transform: rotate(10deg);
 
+  @media screen and (max-width: 1500px) {
+    top: 1.5rem;
+    left: 3rem;
+  }
+
+  @media screen and (max-width: 500px) {
+    height: 3rem;
+    left: 2rem;
+  }
   animation: float-vertical 20s infinite;
 `;
 

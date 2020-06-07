@@ -41,6 +41,12 @@ const ThisSection = styled.div`
   //box-shadow: 0 3px 8px rgba(25, 25, 25, 0.1);
   padding: 0 3rem;
   transition: 0.4s;
+
+  @media screen and (max-width: 500px) {
+    ul {
+      display: none;
+    }
+  }
 `;
 
 const Logo = styled.h2`
@@ -82,6 +88,11 @@ const Button = styled.button`
   outline: none;
   border: 1px solid ${Colors.almostInvisible};
   margin-left: 2rem;
+
+  @media screen and (max-width: 500px) {
+    position: absolute;
+    right: 0.5rem;
+  }
 
   &:hover {
     color: ${Colors.white};

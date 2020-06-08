@@ -13,5 +13,9 @@ const Footer = () => {
 const ThisSection = styled.div`
   text-align: center;
   color: rgba(30, 30, 30, 0.4);
+
+  @media screen and (max-width: 600px) {
+    margin: 1rem 0 2rem;
+  }
 `;
 export default Footer;

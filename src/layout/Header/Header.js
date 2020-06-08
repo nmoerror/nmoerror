@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Colors from '../../constants/Colors';
 
-const Header = ({ openDrawer, closeDrawer }) => {
+const Header = ({ openModal }) => {
   const [activeColor, setActiveColor] = useState(Colors.white);
 
   const triggerOpen = (color) => {
@@ -23,7 +23,7 @@ const Header = ({ openDrawer, closeDrawer }) => {
           <span>Pricing Guide</span>
         </Li>
       </List>
-      <Button>Contact Us</Button>
+      <Button onClick={() => openModal()}>Contact Us</Button>
     </ThisSection>
   );
 };
@@ -43,6 +43,7 @@ const ThisSection = styled.div`
   transition: 0.4s;
 
   @media screen and (max-width: 500px) {
+    padding: 0 2rem;
     ul {
       display: none;
     }
@@ -91,7 +92,7 @@ const Button = styled.button`
 
   @media screen and (max-width: 500px) {
     position: absolute;
-    right: 0.5rem;
+    right: 1rem;
   }
 
   &:hover {

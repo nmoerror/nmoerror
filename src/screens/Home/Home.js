@@ -107,6 +107,10 @@ const Landing = styled.div`
     width: 100%;
   }
 
+  @media screen and (max-width: 600px) {
+    left: 0rem;
+  }
+
   p {
     margin: 0;
   }

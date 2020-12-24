@@ -67,7 +67,7 @@ const Li = styled.li`
   transition: 0.25s;
   padding: 0 2rem;
   display: flex;
-  cursor: pointer;
+  cursor: not-allowed;
 
   span {
     margin: auto;

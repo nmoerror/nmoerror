@@ -26,7 +26,7 @@ const ThisSection = styled.div`
   top: 0;
   margin: auto 1rem;
   transition: 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0s;
-  cursor: pointer;
+  cursor: not-allowed;
 
   box-shadow: rgba(50, 50, 50, 0.2) 0px 1px 20px;
   overflow: hidden;
